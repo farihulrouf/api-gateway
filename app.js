@@ -13,7 +13,7 @@ const mediaRouter = require('./routes/media');
 const ordersRouter = require('./routes/orders');
 const paymentsRouter = require('./routes/payments');
 const lessonsRouter = require('./routes/lessons');
-
+const myCoursesRouter = require('./routes/myCourses');
 
 const imageCoursesRouter = require('./routes/imageCourses');
 const refreshTokensRouter = require('./routes/refreshTokens');
@@ -36,7 +36,8 @@ app.use('/orders', ordersRouter);
 app.use('/payments', paymentsRouter);
 app.use('/lessons', verifyToken,lessonsRouter);
 app.use('/refresh-tokens', refreshTokensRouter);
-app.use('/image-courses',verifyToken, imageCoursesRouter)
+app.use('/image-courses',verifyToken, imageCoursesRouter);
+app.use('/my-courses', verifyToken, myCoursesRouter);
 
 
 app.use('/mentors', verifyToken, mentorsRouter);
