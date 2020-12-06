@@ -14,10 +14,11 @@ const ordersRouter = require('./routes/orders');
 const paymentsRouter = require('./routes/payments');
 const lessonsRouter = require('./routes/lessons');
 
+
+const imageCoursesRouter = require('./routes/imageCourses');
 const refreshTokensRouter = require('./routes/refreshTokens');
 const mentorsRouter = require('./routes/mentors');
 const verifyToken = require('./middlewares/verifyToken');
-
 const app = express();
 
 app.use(logger('dev'));
@@ -35,6 +36,7 @@ app.use('/orders', ordersRouter);
 app.use('/payments', paymentsRouter);
 app.use('/lessons', verifyToken,lessonsRouter);
 app.use('/refresh-tokens', refreshTokensRouter);
+app.use('/image-courses',verifyToken, imageCoursesRouter)
 
 
 app.use('/mentors', verifyToken, mentorsRouter);
